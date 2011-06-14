@@ -7,13 +7,15 @@ Contact.Person.FIXTURES = [
   {
     guid: 1,
     group: 1,
-    firstName: "Diane"
+    firstName: "Diane",
+    lastName: "Campbell"
   },
 
   {
     guid: 2,
     group: 1,
-    firstName: "Eddy"
+    firstName: "Eddy",
+    lastName: "Campbell"
   },
 
   {

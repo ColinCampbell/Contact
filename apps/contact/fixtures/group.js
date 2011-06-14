@@ -6,13 +6,13 @@ Contact.Group.FIXTURES = [
 
   {
     guid: 1,
-    name: "Coworkers",
+    name: "Family",
     people: [1, 2]
   },
 
   {
     guid: 2,
-    name: "Family",
+    name: "Coworkers",
     people: [3, 4, 5]
   },
 
