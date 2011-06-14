@@ -8,6 +8,19 @@ Contact = SC.Application.create({
   store: SC.Store.create().from(SC.Record.fixtures)
 });
 
+Contact.statechart = SC.Statechart.create({
+
+  autoInitStatechart: NO,
+
+  rootState: SC.State.design({
+    initialSubstate: 'ready',
+
+    signIn: SC.State.plugin('Contact.SignInState'),
+    ready: SC.State.plugin('Contact.ReadyState')
+  })
+
+});
+
 Contact.pane = SC.Pane.create({
   layout: {centerX: 0, centerY: 0, height: 400, width: 800},
   childViews: ['sidebar', 'contentView'],
@@ -43,5 +56,5 @@ Contact.personView = SC.TemplateView.create({
 });
 
 SC.ready(function() {
-  Contact.pane.append();
+  Contact.statechart.initStatechart();
 });

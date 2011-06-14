@@ -7,6 +7,7 @@ config :all,
   :required => [
     "sproutcore/core_foundation",
     "sproutcore/foundation",
-    "sproutcore/datastore"
+    "sproutcore/datastore",
+    "sproutcore/statechart"
   ],
   :theme => "sproutcore/empty_theme"
