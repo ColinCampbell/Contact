@@ -24,6 +24,7 @@ Contact.statechart = SC.Statechart.create({
 Contact.pane = SC.Pane.create({
   layout: {centerX: 0, centerY: 0, height: 400, width: 800},
   childViews: ['sidebar', 'contentView'],
+  classNames: ['app'],
   defaultResponder: 'Contact.statechart',
 
   // This is wrapped in a SC.View so we have our layout defined
@@ -32,26 +33,28 @@ Contact.pane = SC.Pane.create({
   sidebar: SC.View.design({
     layout: {width: 200},
     childViews: ['sidebar'],
+    classNames: ['sidebar'],
 
     sidebar: SC.TemplateView.design({
-      classNames: ['sidebar'],
       templateName: 'sidebar'
     })
   }),
 
   contentView: SC.ContainerView.design({
-    layout: {left: 200},
+    layout: {left: 201},
     autoResizeStyle: SC.RESIZE_AUTOMATIC,
     nowShowingBinding: 'Contact.displayController.nowShowing'
   })
 });
 
 Contact.groupView = SC.TemplateView.create({
+  classNames: ['group'],
   contentBinding: 'Contact.groupController',
   templateName: 'group'
 });
 
 Contact.personView = SC.TemplateView.create({
+  classNames: ['person'],
   contentBinding: 'Contact.personController',
   templateName: 'person'
 });

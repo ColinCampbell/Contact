@@ -81,24 +81,30 @@ Contact.ReadyState = SC.State.extend({
     none: SC.State,
 
     group: SC.State.design({
-      enterState: function() {
+      enterState: function(context) {
+        var group = context ? context.group : null;
+        Contact.groupController.set('content', group);
         Contact.displayController.set('nowShowing', 'Contact.groupView');
       }
     }),
 
     person: SC.State.design({
-      enterState: function() {
+      enterState: function(context) {
+        var person = context ? context.person : null;
+        Contact.personController.set('content', person);
         Contact.displayController.set('nowShowing', 'Contact.personView');
       }
     }),
 
-    showGroup: function() {
-      this.gotoState('ready.none.group');
+    showGroup: function(sender) {
+      var group = sender.getPath('parentView.content');
+      this.gotoState('ready.none.group', {group: group});
       return YES;
     },
 
-    showPerson: function() {
-      this.gotoState('ready.none.person');
+    showPerson: function(sender) {
+      var person = sender.getPath('content');
+      this.gotoState('ready.none.person', {person: person});
       return YES;
     }
   }),

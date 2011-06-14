@@ -4,3 +4,64 @@
 *  ==========================================================================
 */
 
+@import "compass/css3";
+
+body {
+  background-color: #f4f4f4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+.sc-view.app {
+  background-color: #fff;
+  border: 1px solid #bbb;
+}
+
+.sc-view.sidebar {
+  border-right: 1px solid #bbb;
+
+  .group {
+    background-color: #b2e6fa;
+    font-weight: bold;
+    padding: 3px 10px;
+  }
+
+  .person {
+    border-bottom: 1px solid #ddd;
+    padding: 6px 10px 6px 20px;
+  }
+}
+
+.sc-container-view {
+  .group, .person {
+    padding: 30px;
+
+    h2 {
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+      padding-bottom: 3px;
+    }
+
+    ul {
+      padding: 20px;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    .buttons {
+      float: right;
+
+      .sc-button {
+        background-color: #9c3;
+        border: 1px solid #8ac11d;
+        color: #fff;
+        @include inline-block;
+        padding: 3px 10px;
+      }
+    }
+  }
+}

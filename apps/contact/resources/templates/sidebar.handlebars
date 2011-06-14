@@ -1,5 +1,5 @@
 {{#collection Contact.GroupsList contentBinding="Contact.groupsController.content"}}
-  {{#view SC.Button action="showGroup"}}
+  {{#view SC.Button action="showGroup" classNames="group"}}
     <h2>{{parentView.content.name}}</h2>
   {{/view}}
   {{collection Contact.PeopleList contentBinding=".parentView.content.people"}}
