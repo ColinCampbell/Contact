@@ -1,0 +1,21 @@
+<h2>Person: {{content.name}}</h2>
+
+<ul class="form">
+  <li>
+    <label for="firstName">First Name:</label>
+    {{view SC.Textfield name="firstName" valueBinding="Contact.personController.firstName"}}
+  </li>
+  <li>
+    <label for="lastName">Last Name:</label>
+    {{view SC.Textfield name="lastName" valueBinding="Contact.personController.lastName"}}
+  </li>
+</ul>
+
+<div class="buttons">
+  {{#view SC.Button action="cancelGroup" classNames="button cancel"}}
+    Cancel
+  {{/view}}
+  {{#view SC.Button action="saveGroup" classNames="button save"}}
+    Save
+  {{/view}}
+</div>

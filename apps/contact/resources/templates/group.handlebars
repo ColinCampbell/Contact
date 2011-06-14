@@ -1,0 +1,17 @@
+<h2>Group: {{content.name}}</h2>
+
+<ul class="form">
+  <li>
+    <label for="name">Name:</label>
+    {{view SC.Textfield name="name" valueBinding="Contact.groupController.name"}}
+  </li>
+</ul>
+
+<div class="buttons">
+  {{#view SC.Button action="cancelGroup" classNames="button cancel"}}
+    Cancel
+  {{/view}}
+  {{#view SC.Button action="saveGroup" classNames="button save"}}
+    Save
+  {{/view}}
+</div>
