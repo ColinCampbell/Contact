@@ -72,8 +72,34 @@ Contact.ReadyState = SC.State.extend({
   }),
 
   none: SC.State.design({
+    initialSubstate: 'none',
+
     enterState: function() {
       console.log("Application ready");
+    },
+
+    none: SC.State,
+
+    group: SC.State.design({
+      enterState: function() {
+        Contact.displayController.set('nowShowing', 'Contact.groupView');
+      }
+    }),
+
+    person: SC.State.design({
+      enterState: function() {
+        Contact.displayController.set('nowShowing', 'Contact.personView');
+      }
+    }),
+
+    showGroup: function() {
+      this.gotoState('ready.none.group');
+      return YES;
+    },
+
+    showPerson: function() {
+      this.gotoState('ready.none.person');
+      return YES;
     }
   }),
 

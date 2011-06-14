@@ -7,7 +7,7 @@ Contact.PeopleList = SC.TemplateCollectionView.extend({
   classNames: ['people-list'],
 
   itemViewClass: SC.Button.extend({
-    action: 'personSelected',
+    action: 'showPerson',
     template: SC.Handlebars.compile('<div class="button">{{content.fullName}}</div>')
   })
 
