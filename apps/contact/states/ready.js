@@ -81,18 +81,62 @@ Contact.ReadyState = SC.State.extend({
     none: SC.State,
 
     group: SC.State.design({
+      _store: null,
+
       enterState: function(context) {
-        var group = context ? context.group : null;
-        Contact.groupController.set('content', group);
+        var group = context ? context.group : null,
+            store = Contact.store.chain();
+
+        if (group) {
+          group = store.find(Contact.Group, group.get('guid'));
+          Contact.groupController.set('content', group);
+        }
+        this._store = store;
+
         Contact.displayController.set('nowShowing', 'Contact.groupView');
+      },
+
+      exitState: function() {
+        this._store.discardChanges().destroy();
+        this._store = null;
+      },
+
+      cancel: function() {
+        this._store.discardChanges();
+      },
+
+      save: function() {
+        this._store.commitChanges(true);
       }
     }),
 
     person: SC.State.design({
+      _store: null,
+
       enterState: function(context) {
-        var person = context ? context.person : null;
-        Contact.personController.set('content', person);
+        var person = context ? context.person : null,
+            store = Contact.store.chain();
+
+        if (person) {
+          person = store.find(Contact.Person, person.get('guid'));
+          Contact.personController.set('content', person);
+        }
+        this._store = store;
+
         Contact.displayController.set('nowShowing', 'Contact.personView');
+      },
+
+      exitState: function() {
+        this._store.discardChanges().destroy();
+        this._store = null;
+      },
+
+      cancel: function() {
+        this._store.discardChanges();
+      },
+
+      save: function() {
+        this._store.commitChanges(true);
       }
     }),
 
