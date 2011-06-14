@@ -5,7 +5,7 @@
 /*globals Contact */
 
 Contact = SC.Application.create({
-  store: SC.Store.create().from(SC.Record.fixtures)
+  store: SC.Store.create().from('Contact.FixturesDataSource')
 });
 
 Contact.statechart = SC.Statechart.create({
