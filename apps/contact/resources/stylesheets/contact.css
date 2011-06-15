@@ -14,9 +14,25 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
-.sc-view.app {
+.sc-button {
+  background-color: #9c3;
+  border: 1px solid #8ac11d;
+  color: #fff;
+  padding: 3px 10px;
+  text-align: center;
+}
+
+.sc-view.app, .sc-view.sign-in {
   background-color: #fff;
   border: 1px solid #bbb;
+}
+
+.sc-view.sign-in {
+  padding: 20px;
+
+  input {
+    margin-bottom: 15px;
+  }
 }
 
 .sc-view.sidebar {
@@ -56,11 +72,7 @@ h1, h2, h3, h4, h5, h6 {
       float: right;
 
       .sc-button {
-        background-color: #9c3;
-        border: 1px solid #8ac11d;
-        color: #fff;
         @include inline-block;
-        padding: 3px 10px;
       }
     }
   }

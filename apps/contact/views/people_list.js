@@ -1,7 +1,5 @@
 /*globals Contact */
 
-sc_require('views/person_list_item');
-
 Contact.PeopleList = SC.TemplateCollectionView.extend({
 
   classNames: ['people-list'],

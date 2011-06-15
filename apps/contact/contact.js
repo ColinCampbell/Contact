@@ -13,12 +13,23 @@ Contact.statechart = SC.Statechart.create({
   autoInitStatechart: NO,
 
   rootState: SC.State.design({
-    initialSubstate: 'ready',
+    initialSubstate: 'signIn',
 
     signIn: SC.State.plugin('Contact.SignInState'),
     ready: SC.State.plugin('Contact.ReadyState')
   })
 
+});
+
+Contact.signInPane = SC.Pane.create({
+  layout: {centerX: 0, centerY: 0, height: 100, width: 150},
+  childViews: ['form'],
+  classNames: ['sign-in'],
+  defaultResponder: 'Contact.statechart',
+
+  form: SC.TemplateView.design({
+    templateName: 'sign_in_form'
+  })
 });
 
 Contact.pane = SC.Pane.create({

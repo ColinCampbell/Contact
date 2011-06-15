@@ -1,0 +1,10 @@
+{{#view SC.TextField valueBinding="Contact.signInController.email"}}
+  <input type="text" name="email" placeholder="Email" />
+{{/view}}
+{{#view SC.TextField valueBinding="Contact.signInController.password"}}
+  <input type="password" name="password" placeholder="Password" />
+{{/view}}
+
+{{#view SC.Button action="signIn"}}
+  <div class="button">Sign In</div>
+{{/view}}
